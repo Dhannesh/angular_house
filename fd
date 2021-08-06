@@ -1,0 +1,17 @@
+[33mcommit a0ab68ec0074296b08aaa5c40f3ead3f8324ee46[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Dhanesh <dhannesh@gmail.com>
+Date:   Fri Aug 6 12:41:11 2021 +0530
+
+    Validator added on forms
+
+[33mcommit ca2c1603a8805b26f11dd09f531d944b1d005101[m
+Author: Dhanesh <dhannesh@gmail.com>
+Date:   Sun Aug 1 00:50:30 2021 +0530
+
+    default property card added
+
+[33mcommit 0ae6d14075ff05895d1e04d264c6380234b098db[m
+Author: Dhanesh <dhannesh@gmail.com>
+Date:   Sat Jul 31 22:53:11 2021 +0530
+
+    initial commit
