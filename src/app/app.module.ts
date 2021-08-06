@@ -17,6 +17,8 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { UserServiceService } from './service/user-service.service';
 import { AlertifyService } from './service/alertify.service';
 import { AuthService } from './service/auth.service';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes:Routes = [
   {path: '', component: PropertyListComponent},
@@ -44,7 +46,9 @@ const appRoutes:Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    BsDropdownModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [HousingService,UserServiceService, AlertifyService, AuthService],
   bootstrap: [AppComponent]

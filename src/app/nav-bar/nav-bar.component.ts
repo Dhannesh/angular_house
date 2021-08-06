@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,14 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-
+  userName!: string;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   loggedIn(){
-    return localStorage.getItem('token');
+    this.userName = localStorage.getItem('token')!;
+    return this.userName;
   }
   onLogout(){
     localStorage.removeItem('token');
