@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header">Add New Property</div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #Form="ngForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="Name" #propName="ngModel" ngModel required minlength="5">
+        <span class="error-block" *ngIf="propName.invalid && (propName.dirty || propName.touched)">
+          <span  *ngIf="propName.errors?.required">Please enter name</span>
+          <span  *ngIf="propName.errors?.minlength">name must be atleast 5 char long</span>
+        </span>
+      </div>
+      <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+        <input type="text" class="form-control" name="Type" ngModel>
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" name="Price" #propPrice="ngModel" ngModel required min="1000">
+        <span class="error-block" *ngIf="propPrice.invalid && (propPrice.dirty || propPrice.touched)">
+          <span *ngIf="propPrice.errors?.required">Please enter price</span>
+          <span *ngIf="propPrice.errors?.min">minimum price should be 1000</span>
+
+        </span>
+
+      </div>
+      <div class="form-group col-12">
+        <button [disabled] = "!Form.valid" type="submit" class="btn btn-primary mx-2 my-2">Save</button>
+        <button type="reset" class="btn btn-primary">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

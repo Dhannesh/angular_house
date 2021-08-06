@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-6 m-auto">
+    <div class="card m-auto">
+      <div class="card-header">Register</div>
+      <div class="card-body">
+        <form [formGroup] = "registrationForm" (ngSubmit) = "onSubmit()">
+          <div class="mb-3 col-12">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" formControlName="userName" />
+            <span class="error-block" *ngIf="(f['userName'].invalid && f['userName'].dirty || f['userName'].touched)">
+              <span *ngIf="f['userName'].errors?.required">Please enter name</span>
+              <span *ngIf="f['userName'].errors?.minlength">username atleast 3 char long</span>
+            </span>
+          </div>
+
+          <div class="mb-3 col-12">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" formControlName="email" />
+            <span class="error-block" *ngIf="(f['email'].invalid && f['email'].dirty || f['email'].touched)">
+              <span *ngIf="f['email'].errors?.required">Please enter email</span>
+              <span *ngIf="f['email'].errors?.email">please enter valid email </span>
+            </span>
+          </div>
+
+          <div class="mb-3 col-12">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" formControlName="password" />
+            <span class="error-block" *ngIf="(f['password'].invalid && f['password'].dirty || f['password'].touched)">
+              <span *ngIf="f['password'].errors?.required">Please enter password</span>
+              <span *ngIf="f['password'].errors?.minlength">password atleast 8 char long </span>
+            </span>
+          </div>
+
+          <div class="mb-3 col-12">
+            <label for="cpassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" formControlName="confirmPassword" />
+            <span class="error-block" *ngIf="(f['confirmPassword'].invalid && f['confirmPassword'].dirty || f['confirmPassword'].touched)">
+              <span *ngIf="f['confirmPassword'].errors?.required">Please enter confirm password</span>
+              <span *ngIf="f['confirmPassword'].hasError('NoPasswordMatch')">password is not matching </span>
+            </span>
+          </div>
+
+          <div class="mb-3 col-12">
+            <label for="mobile" class="form-label">Mobile</label>
+            <input type="text" class="form-control" formControlName="mobile" />
+            <span class="error-block" *ngIf="(f['mobile'].invalid && f['mobile'].dirty || f['mobile'].touched)">
+              <span *ngIf="f['mobile'].errors?.required">Please enter mobile number</span>
+              <span *ngIf="f['mobile'].errors?.maxlength">mobile number must be 10 char long </span>
+            </span>
+          </div>
+
+          <div class="mb-3 col-12">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="reset" class="btn btn-secondary mx-2">Cancel</button>
+          </div>
+          {{registrationForm.value | json}} <br>
+          {{registrationForm.valid}}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
