@@ -7,7 +7,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { User } from 'src/app/model/user';
+import { AlertifyService } from 'src/app/service/alertify.service';
 import { UserServiceService } from 'src/app/service/user-service.service';
+
 
 @Component({
   selector: 'app-user-register',
@@ -19,7 +21,7 @@ export class UserRegisterComponent implements OnInit {
   user!: User;
   userSubmitted!:boolean;
 
-  constructor(private fb: FormBuilder, private userService:UserServiceService) {}
+  constructor(private fb: FormBuilder, private userService:UserServiceService, private alertify:AlertifyService) {}
 
   ngOnInit(): void {
     this.createRegistrationForm();
@@ -58,12 +60,12 @@ export class UserRegisterComponent implements OnInit {
   onSubmit() {
     this.userSubmitted = true;
     if(this.registrationForm.valid){
-
-    //this.user = Object.assign(this.user,this.registrationForm.value);
-    //localStorage.setItem("Users",JSON.stringify(this.user));
     this.userService.addUser(this.userData());
     this.registrationForm.reset();
     this.userSubmitted = false;
+    this.alertify.success("Congrats, you are successfully registered")
+    }else{
+      this.alertify.error('Kindly provide the required fields');
     }
   }
 

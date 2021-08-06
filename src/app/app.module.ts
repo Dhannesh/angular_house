@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { UserServiceService } from './service/user-service.service';
+import { AlertifyService } from './service/alertify.service';
 
 const appRoutes:Routes = [
   {path: '', component: PropertyListComponent},
@@ -44,7 +45,7 @@ const appRoutes:Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule
   ],
-  providers: [HousingService,UserServiceService],
+  providers: [HousingService,UserServiceService, AlertifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
